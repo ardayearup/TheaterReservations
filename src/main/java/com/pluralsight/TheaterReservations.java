@@ -20,10 +20,18 @@ public class TheaterReservations {
         keyboard.nextLine();
 
         String[] name_parts = full_name.split(Pattern.quote(" "));
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("MM-dd-yyy");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         LocalDate today = LocalDate.parse(date_of_show,format);
 
         if (ticket_number == 1) {
+            System.out.printf("1 ticket reserved for " + today + " under " + name_parts[1] + " ," + name_parts[0]);
+
+        }
+        else if (ticket_number <= 0) {
+            System.out.printf("Sorry you need a ticket.");
+        }
+        else {
+            System.out.printf(ticket_number + " tickets reserved for " + today + " under " + name_parts[1] + " ," + name_parts[0]);
         }
 
 
